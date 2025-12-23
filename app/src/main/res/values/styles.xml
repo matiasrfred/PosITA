@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="PosMenuButton" parent="Widget.MaterialComponents.Button">
+        <!-- Tamaño ajustado -->
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:layout_margin">12dp</item>
+
+        <!-- Texto -->
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- Icono -->
+        <item name="iconGravity">textTop</item>
+        <item name="iconPadding">8dp</item>
+        <item name="iconSize">30dp</item>
+
+        <!-- Forma -->
+        <item name="cornerRadius">14dp</item>
+
+        <!-- Elevación -->
+        <item name="android:elevation">10dp</item>
+    </style>
+    <style name="SettingsButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="backgroundTint">@color/ventas</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
+</resources>

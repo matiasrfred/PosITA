@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:text="Gestión de Productos"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
+    <Button
+        android:text="Mantenedor Departamentos"
+        style="@style/SettingsButton"/>
+
+    <Button
+        android:text="Mantenedor Categorías"
+        style="@style/SettingsButton"/>
+
+    <Button
+        android:text="Mantenedor Subcategorías"
+        style="@style/SettingsButton"/>
+
+    <Button
+        android:text="Mantenedor Productos"
+        style="@style/SettingsButton"/>
+
+</LinearLayout>

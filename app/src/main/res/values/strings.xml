@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PosBO+</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="ventas">Ventas</string>
+    <string name="historial">Historial</string>
+    <string name="reportes">Reportes</string>
+    <string name="inventario">Inventario</string>
+    <string name="clientes">Clientes</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="est_s_seguro_que_deseas_cerrar_sesi_n">¿Estás seguro que deseas cerrar sesión?</string>
+</resources>

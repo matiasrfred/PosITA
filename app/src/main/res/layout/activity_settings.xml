@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/bg_light">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AJUSTES"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:paddingBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnCompany"
+        android:text="Configuración de Empresa"
+        style="@style/SettingsButton"/>
+
+    <Button
+        android:id="@+id/btnUsers"
+        android:text="Mantenedor de Usuarios"
+        style="@style/SettingsButton"/>
+
+    <Button
+        android:id="@+id/btnProducts"
+        android:text="Gestión de Productos"
+        style="@style/SettingsButton"/>
+
+</LinearLayout>
