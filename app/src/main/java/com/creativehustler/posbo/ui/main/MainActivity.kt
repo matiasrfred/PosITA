@@ -8,6 +8,7 @@ import com.creativehustler.posbo.R
 import com.creativehustler.posbo.databinding.ActivityMainBinding
 import com.creativehustler.posbo.ui.login.LoginActivity
 import com.creativehustler.posbo.ui.settings.SettingsActivity
+import com.creativehustler.posbo.utils.ImmersiveHelper
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -21,16 +22,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        enableImmersiveMode()
+        ImmersiveHelper.apply(this)
         setupActions()
         setupLogout()
-    }
-
-    private fun enableImmersiveMode() {
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
-                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_FULLSCREEN
     }
 
     private fun setupActions() {
@@ -112,7 +106,7 @@ class MainActivity : AppCompatActivity() {
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) {
-            enableImmersiveMode()
+            ImmersiveHelper.apply(this)
         }
     }
 

@@ -1,4 +1,4 @@
-package com.creativehustler.posbo.ui.settings.users
+package com.creativehustler.posbo.ui.settings.users.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,8 @@ import com.creativehustler.posbo.R
 import com.creativehustler.posbo.data.db.entity.UserEntity
 
 class UserAdapter(
-    private val users: List<UserEntity>
+    private val users: List<UserEntity>,
+    private val onUserClick: (UserEntity) -> Unit
 ) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     inner class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -30,7 +31,11 @@ class UserAdapter(
         val user = users[position]
 
         holder.txtUserId.text = "ID: ${user.id}"
-        holder.txtUsername.text = user.username
+        val fullName = listOf(
+            user.firstName.takeIf { it.isNotBlank() },
+            user.lastName.takeIf { it.isNotBlank() }
+        ).filterNotNull().joinToString(" ")
+        holder.txtUsername.text = fullName.ifBlank { user.username }
         holder.txtRole.text = user.role.uppercase()
         holder.txtStatus.text = if (user.active) "Activo" else "Inactivo"
 
@@ -44,6 +49,10 @@ class UserAdapter(
         holder.txtRole.setBackgroundColor(
             ContextCompat.getColor(holder.itemView.context, color)
         )
+
+        holder.itemView.setOnClickListener {
+            onUserClick(user)
+        }
     }
 
     override fun getItemCount(): Int = users.size

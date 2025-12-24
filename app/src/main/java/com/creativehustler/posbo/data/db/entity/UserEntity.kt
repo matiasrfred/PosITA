@@ -8,6 +8,9 @@ data class UserEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
+    val firstName: String = "",
+    val lastName: String = "",
+
     val username: String,
     val password: String, // luego puedes hashear
     val role: String,     // superadmin, admin, supervisor, cajero

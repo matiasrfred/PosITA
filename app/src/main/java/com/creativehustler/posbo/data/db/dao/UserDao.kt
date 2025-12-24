@@ -2,6 +2,7 @@ package com.creativehustler.posbo.data.db.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.creativehustler.posbo.data.db.entity.UserEntity
 
 @Dao
@@ -19,6 +20,12 @@ interface UserDao {
     @Insert
     fun insert(user: UserEntity)
 
+    @Update
+    fun update(user: UserEntity)
+
     @Query("SELECT COUNT(*) FROM users")
     fun countUsers(): Int
+
+    @Query("SELECT * FROM users ORDER BY id ASC")
+    fun getAllUsers(): List<UserEntity>
 }

@@ -10,6 +10,7 @@ import com.creativehustler.posbo.ui.main.MainActivity
 import com.creativehustler.posbo.R
 import com.creativehustler.posbo.data.db.AppDatabase
 import com.creativehustler.posbo.data.db.entity.UserEntity
+import com.creativehustler.posbo.utils.ImmersiveHelper
 
 class LoginActivity : AppCompatActivity() {
 
@@ -51,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
                 mostrarError("Usuario o clave incorrectos")
             }
         }
+        ImmersiveHelper.apply(this)
 
     }
     private fun irAlMain() {
@@ -72,6 +74,11 @@ class LoginActivity : AppCompatActivity() {
             .putString("role", user.role)
             .apply()
     }
+    override fun onResume() {
+        super.onResume()
+        ImmersiveHelper.apply(this)
+    }
+
 
 
 }

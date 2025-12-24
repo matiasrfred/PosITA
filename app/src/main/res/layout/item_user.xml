@@ -1,47 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp">
+    android:layout_marginVertical="4dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="12dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/txtUserId"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:text="ID: 1"
-            android:layout_height="match_parent" android:layout_width="match_parent"/>
+        android:padding="12dp">
 
         <TextView
             android:id="@+id/txtUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:textSize="16sp"
-            android:text="usuario"
-            android:layout_height="match_parent" android:layout_width="match_parent"/>
+            android:textColor="@color/text_dark"
+            android:text="Usuario"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/txtRole"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"/>
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <TextView
+            android:id="@+id/txtUserId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            android:text="ID: 1"
+            app:layout_constraintStart_toStartOf="@id/txtUsername"
+            app:layout_constraintTop_toBottomOf="@id/txtUsername"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
             <TextView
                 android:id="@+id/txtRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="6dp"
+            android:background="@drawable/bg_chip_role"
                 android:textColor="@android:color/white"
-                android:text="ADMIN" android:layout_height="match_parent" android:layout_width="match_parent"/>
+            android:text="ADMIN"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/txtStatus"
-                android:layout_marginStart="8dp"
-                android:text="Activo" android:layout_height="match_parent" android:layout_width="match_parent"/>
-        </LinearLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/bg_chip_status"
+            android:text="Activo"
+            android:textSize="12sp"
+            android:textColor="@color/text_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtRole"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
