@@ -8,18 +8,21 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.creativehustler.posbo.data.db.dao.CompanyInfoDao
 import com.creativehustler.posbo.data.db.dao.UserDao
+import com.creativehustler.posbo.data.db.dao.DepartmentDao
 import com.creativehustler.posbo.data.db.entity.CompanyInfoEntity
+import com.creativehustler.posbo.data.db.entity.DepartmentEntity
 import com.creativehustler.posbo.data.db.entity.UserEntity
 
 @Database(
-    entities = [UserEntity::class, CompanyInfoEntity::class],
-    version = 3,
+    entities = [UserEntity::class, CompanyInfoEntity::class, DepartmentEntity::class],
+    version = 5,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
     abstract fun companyInfoDao(): CompanyInfoDao
+    abstract fun departmentDao(): DepartmentDao
 
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null
@@ -59,6 +62,27 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
+        private val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    """
+                        CREATE TABLE IF NOT EXISTS departments (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                            name TEXT NOT NULL,
+                            iva INTEGER NOT NULL,
+                            permite_venta INTEGER NOT NULL
+                        )
+                    """.trimIndent()
+                )
+            }
+        }
+
+        private val MIGRATION_4_5 = object : Migration(4, 5) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE departments ADD COLUMN activo INTEGER NOT NULL DEFAULT 1")
+            }
+        }
+
         fun getInstance(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: Room.databaseBuilder(
@@ -67,7 +91,7 @@ abstract class AppDatabase : RoomDatabase() {
                     "pos_database"
                 )
                     .allowMainThreadQueries() // aceptable para POS local
-                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+                    .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4, MIGRATION_4_5)
                     .build().also { INSTANCE = it }
             }
         }

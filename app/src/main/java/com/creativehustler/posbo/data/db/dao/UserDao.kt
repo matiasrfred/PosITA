@@ -10,12 +10,12 @@ interface UserDao {
 
     @Query("""
         SELECT * FROM users 
-        WHERE username = :username 
-        AND password = :password 
+        WHERE username = :user 
+        AND password = :pass 
         AND active = 1
         LIMIT 1
     """)
-    fun login(username: String, password: String): UserEntity?
+    fun login(user: String, pass: String): UserEntity?
 
     @Insert
     fun insert(user: UserEntity)

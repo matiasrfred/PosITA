@@ -49,4 +49,24 @@
     <string name="seccion_representante">Representante Legal</string>
     <string name="seccion_dispositivo">Dispositivo</string>
     <string name="configuracion_guardada">Configuración guardada</string>
+    <string name="gestion_productos">Gestión de Productos</string>
+    <string name="mantenedor_departamentos">Mantenedor Departamentos</string>
+    <string name="mantenedor_categorias">Mantenedor Categorías</string>
+    <string name="mantenedor_subcategorias">Mantenedor Subcategorías</string>
+    <string name="mantenedor_productos">Mantenedor Productos</string>
+    <string name="gestion_departamentos">Gestión de Departamentos</string>
+    <string name="iva">IVA</string>
+    <string name="nombre_departamento">Nombre del departamento</string>
+    <string name="aplica_iva">Aplica IVA</string>
+    <string name="permite_venta">Permite venta</string>
+    <string name="departamentos_registrados">Departamentos registrados</string>
+    <string name="sin_departamentos">Aún no hay departamentos registrados.</string>
+    <string name="complete_nombre_departamento">Por favor ingresa el nombre del departamento</string>
+    <string name="departamento_guardado">Departamento guardado</string>
+    <string name="departamento_actualizado">Departamento actualizado</string>
+    <string name="activo">Activo</string>
+    <string name="agregar_departamento">Agregar departamento</string>
+    <string name="si">Sí</string>
+    <string name="no">No</string>
+    <string name="actualizar">Actualizar</string>
 </resources>
