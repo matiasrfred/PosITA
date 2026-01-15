@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.creativehustler.posbo.R
 import com.creativehustler.posbo.utils.ImmersiveHelper
-import com.google.android.material.button.MaterialButton
 
 class ProductManagementActivity : AppCompatActivity() {
 
@@ -26,11 +25,11 @@ class ProductManagementActivity : AppCompatActivity() {
         }
 
         findViewById<ImageButton>(R.id.btnCategories).setOnClickListener {
-            Toast.makeText(this, getString(R.string.mantenedor_categorias), Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, CategoryActivity::class.java))
         }
 
         findViewById<ImageButton>(R.id.btnSubcategories).setOnClickListener {
-            Toast.makeText(this, getString(R.string.mantenedor_subcategorias), Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, SubcategoryActivity::class.java))
         }
 
         findViewById<ImageButton>(R.id.btnProducts).setOnClickListener {
